@@ -13,7 +13,7 @@ const App = () => {
     {id: uuid.v4(), text: 'Bread'},
   ]);
 
-  const deleteItem = id => {
+  const deleteItem = (id: any) => {
     setItems(prevItems => {
       return prevItems.filter(item => item.id !== id);
     });
@@ -23,7 +23,7 @@ const App = () => {
     if (!text) {
       Alert.alert('Error', 'Please enter an item');
     } else {
-      setItems(prevItems => {
+      setItems((prevItems: any) => {
         return [{id: uuid.v4(), text}, ...prevItems];
       });
     }
