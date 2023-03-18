@@ -1,20 +1,37 @@
 import {StyleSheet} from 'react-native';
 
 const PastURLsStyles = StyleSheet.create({
-  container: {
-    backgroundColor: 'green',
-  },
-  input: {
-    marginVertical: 10,
-    borderWidth: 1,
-  },
-  urlText: {
+  title: {
     color: '#FFF',
-    fontSize: 20,
-    marginVertical: 30,
+    fontSize: 30,
   },
-  loader: {
-    marginVertical: 20,
+  container: {
+    marginVertical: 15,
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
+  containerTable: {
+    flexDirection: 'column',
+    marginVertical: 15,
+    justifyContent: 'space-evenly',
+  },
+  shortSubtitle: {
+    color: '#FFF',
+    fontSize: 15,
+  },
+  originalSubtitle: {
+    color: '#FFF',
+    fontSize: 15,
+    marginLeft: 'auto',
+  },
+  shortText: {
+    color: '#FFF',
+    fontSize: 10,
+  },
+  originalText: {
+    color: '#FFF',
+    fontSize: 10,
   },
 });
 
