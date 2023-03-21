@@ -55,6 +55,7 @@ const ShortenURL = () => {
 
   return (
     <View>
+      {/* TODO: Clear input after correct response. */}
       <TextInput
         style={SUStyles.input}
         placeholder="Enter URL to shorten"
