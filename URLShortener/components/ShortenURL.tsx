@@ -5,21 +5,19 @@ import {
   Button,
   Text,
   ActivityIndicator,
-  TouchableOpacity,
   Alert,
 } from 'react-native';
 import axios from 'axios';
 import SUStyles from '../styles/SUStyles';
 import PastURLs from './PastURLs';
-import Icon from 'react-native-vector-icons/FontAwesome5';
 import urlValidator from '../helpers/urlValidator';
 import {ApiUrl} from '../types/types';
+import CopyButton from './CopyButton';
 
 const ShortenURL = () => {
   const [urlToShorten, setUrl] = useState('');
   const [loading, setLoading] = useState(false);
   const [shortUrl, setShortUrl] = useState('');
-
   const [oldUrls, setOldUrls] = useState([]);
 
   const handleShortenUrl = async () => {
@@ -46,6 +44,9 @@ const ShortenURL = () => {
           return [{short: res.short, original: urlToShorten}, ...oldUrls];
         });
         setLoading(false);
+
+        // Clear InputText
+        setUrl('');
       } catch (error) {
         Alert.alert('Error', error?.toString());
         console.log(error);
@@ -61,6 +62,8 @@ const ShortenURL = () => {
         placeholder="Enter URL to shorten"
         value={urlToShorten}
         onChangeText={setUrl}
+        clearButtonMode="always"
+        inputMode="url"
       />
       {loading ? (
         <ActivityIndicator style={SUStyles.loader} size="large" />
@@ -70,10 +73,7 @@ const ShortenURL = () => {
           {shortUrl ? (
             <View style={SUStyles.resURLContainer}>
               <Text style={SUStyles.urlText}>{shortUrl}</Text>
-              {/** If I have time, I'll implement the copy button*/}
-              <TouchableOpacity>
-                <Icon style={SUStyles.copyIcon} name="copy" size={24} />
-              </TouchableOpacity>
+              <CopyButton stringToCopy={shortUrl} />
             </View>
           ) : (
             <Text style={SUStyles.urlText}>Your short URL goes here</Text>
@@ -82,7 +82,6 @@ const ShortenURL = () => {
       )}
 
       <View style={SUStyles.separationLine} />
-
       <PastURLs urlsToDisplay={oldUrls} />
     </View>
   );

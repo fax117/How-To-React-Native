@@ -21,14 +21,10 @@ const SUStyles = StyleSheet.create({
     marginVertical: 30,
     marginRight: 50,
   },
-  copyIcon: {
-    marginLeft: 'auto',
-    marginRight: 10,
-  },
   separationLine: {
     borderWidth: 1,
     borderColor: '#fff',
-    marginVertical: 20,
+    marginBottom: 15,
   },
 });
 

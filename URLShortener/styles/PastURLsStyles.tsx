@@ -9,29 +9,36 @@ const PastURLsStyles = StyleSheet.create({
     marginVertical: 15,
     justifyContent: 'space-evenly',
     alignItems: 'center',
-    flexDirection: 'row',
   },
   containerTable: {
-    flexDirection: 'column',
     marginVertical: 15,
-    justifyContent: 'space-evenly',
+    borderWidth: 1,
+    borderColor: '#fff',
+    padding: 15,
+  },
+  textContainer: {
+    marginVertical: 15,
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    flexDirection: 'row',
   },
   shortSubtitle: {
     color: '#FFF',
-    fontSize: 15,
+    fontSize: 20,
   },
   originalSubtitle: {
     color: '#FFF',
-    fontSize: 15,
-    marginLeft: 'auto',
+    fontSize: 20,
   },
   shortText: {
     color: '#FFF',
     fontSize: 10,
+    marginRight: 50,
   },
   originalText: {
     color: '#FFF',
     fontSize: 10,
+    marginRight: 50,
   },
 });
 

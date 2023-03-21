@@ -3,18 +3,17 @@ import {FlatList, View, Text} from 'react-native';
 import UrlItem from './UrlItem';
 import {ApiUrl} from '../types/types';
 import PastURLsStyles from '../styles/PastURLsStyles';
+import EmptyListComponent from './EmptyListComponent';
 
 const PastURLs = ({urlsToDisplay}: {urlsToDisplay?: ApiUrl[]}) => {
   return (
     <View>
       <Text style={PastURLsStyles.title}>Recently shortened URLs</Text>
-      <View style={PastURLsStyles.container}>
-        <Text style={PastURLsStyles.shortSubtitle}>Short</Text>
-        <Text style={PastURLsStyles.originalSubtitle}>Original</Text>
-      </View>
-
       <FlatList
         data={urlsToDisplay}
+        removeClippedSubviews
+        // eslint-disable-next-line react/no-unstable-nested-components
+        ListEmptyComponent={() => <EmptyListComponent />}
         renderItem={({item}) => (
           <UrlItem short={item.short} original={item.original} />
         )}

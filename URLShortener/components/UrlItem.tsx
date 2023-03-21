@@ -1,15 +1,24 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 import PastURLsStyles from '../styles/PastURLsStyles';
+import CopyButton from './CopyButton';
 
 const UrlItem = ({short, original}: {short: string; original: string}) => {
   return (
     <View style={PastURLsStyles.containerTable}>
       <View>
-        <Text style={PastURLsStyles.shortText}>Short: {short}</Text>
+        <Text style={PastURLsStyles.shortSubtitle}>Short:</Text>
+        <View style={PastURLsStyles.textContainer}>
+          <Text style={PastURLsStyles.shortText}> {short}</Text>
+          <CopyButton stringToCopy={short} />
+        </View>
       </View>
       <View>
-        <Text style={PastURLsStyles.originalText}>Original: {original}</Text>
+        <Text style={PastURLsStyles.originalSubtitle}>Original:</Text>
+        <View style={PastURLsStyles.textContainer}>
+          <Text style={PastURLsStyles.originalText}> {original}</Text>
+          <CopyButton stringToCopy={original} />
+        </View>
       </View>
     </View>
   );

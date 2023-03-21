@@ -9,6 +9,10 @@ const AppStyles = StyleSheet.create({
     color: '#FFF',
     fontSize: 30,
   },
+  copyIcon: {
+    marginLeft: 'auto',
+    marginRight: 10,
+  },
 });
 
 export default AppStyles;
