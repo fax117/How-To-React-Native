@@ -7,12 +7,13 @@ import {
   ActivityIndicator,
   Alert,
 } from 'react-native';
-import axios from 'axios';
+
 import SUStyles from '../styles/SUStyles';
 import PastURLs from './PastURLs';
 import urlValidator from '../helpers/urlValidator';
 import {ApiUrl} from '../types/types';
 import CopyButton from './CopyButton';
+import postRequest from '../helpers/postRequest';
 
 const ShortenURL = () => {
   const [urlToShorten, setUrl] = useState('');
@@ -28,16 +29,11 @@ const ShortenURL = () => {
     } else {
       try {
         setLoading(true);
-        const response = await axios.post(
-          'https://url-shortener-server.onrender.com/api/alias',
-          {
-            url: {urlToShorten},
-          },
-        );
+        const postRest = await postRequest(urlToShorten);
 
         /* The ._links.short is how we get the short URL
         in the response according to the API*/
-        const res: ApiUrl = response.data._links;
+        const res: ApiUrl = postRest.data._links;
 
         setShortUrl(res.short);
         setOldUrls(() => {
@@ -50,13 +46,13 @@ const ShortenURL = () => {
       } catch (error) {
         Alert.alert('Error', error?.toString());
         console.log(error);
+        setLoading(false);
       }
     }
   };
 
   return (
     <View>
-      {/* TODO: Clear input after correct response. */}
       <TextInput
         style={SUStyles.input}
         placeholder="Enter URL to shorten"
