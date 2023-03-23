@@ -60,12 +60,17 @@ const ShortenURL = () => {
         onChangeText={setUrl}
         clearButtonMode="always"
         inputMode="url"
+        testID="input"
       />
       {loading ? (
         <ActivityIndicator style={SUStyles.loader} size="large" />
       ) : (
         <View>
-          <Button title="Shorten URL" onPress={handleShortenUrl} />
+          <Button
+            title="Shorten URL"
+            onPress={handleShortenUrl}
+            testID="shorten-btn"
+          />
           {shortUrl ? (
             <View style={SUStyles.resURLContainer}>
               <Text style={SUStyles.urlText}>{shortUrl}</Text>

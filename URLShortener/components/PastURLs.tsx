@@ -12,6 +12,8 @@ const PastURLs = ({urlsToDisplay}: {urlsToDisplay?: ApiUrl[]}) => {
       <FlatList
         data={urlsToDisplay}
         removeClippedSubviews
+        horizontal
+        persistentScrollbar
         // eslint-disable-next-line react/no-unstable-nested-components
         ListEmptyComponent={() => <EmptyListComponent />}
         renderItem={({item}) => (

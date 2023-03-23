@@ -19,7 +19,8 @@ const PastURLsStyles = StyleSheet.create({
     alignItems: 'center',
   },
   containerTable: {
-    marginVertical: 15,
+    width: 350,
+    marginHorizontal: 15,
     borderWidth: 1,
     borderColor: getThemeColor,
     padding: 15,

@@ -10,14 +10,14 @@ const UrlItem = ({short, original}: {short: string; original: string}) => {
         <Text style={PastURLsStyles.shortSubtitle}>Short:</Text>
         <View style={PastURLsStyles.textContainer}>
           <Text style={PastURLsStyles.shortText}> {short}</Text>
-          <CopyButton stringToCopy={short} />
+          <CopyButton testID="short-copy-btn" stringToCopy={short} />
         </View>
       </View>
       <View>
         <Text style={PastURLsStyles.originalSubtitle}>Original:</Text>
         <View style={PastURLsStyles.textContainer}>
           <Text style={PastURLsStyles.originalText}> {original}</Text>
-          <CopyButton stringToCopy={original} />
+          <CopyButton testID="original-copy-btn" stringToCopy={original} />
         </View>
       </View>
     </View>
