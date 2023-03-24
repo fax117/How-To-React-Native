@@ -3,7 +3,15 @@ import {View, Text} from 'react-native';
 import PastURLsStyles from '../styles/PastURLsStyles';
 import CopyButton from './CopyButton';
 
-const UrlItem = ({short, original}: {short: string; original: string}) => {
+const UrlItem = ({
+  short,
+  original,
+  testID,
+}: {
+  short: string;
+  original: string;
+  testID?: string;
+}) => {
   return (
     <View style={PastURLsStyles.containerTable}>
       <View>

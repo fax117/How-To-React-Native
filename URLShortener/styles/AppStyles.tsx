@@ -1,12 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {Appearance} from 'react-native';
-import {themeColors} from './theme';
-
-const colorScheme = Appearance.getColorScheme();
-const getThemeColor: string =
-  colorScheme === 'light'
-    ? themeColors.light.primary
-    : themeColors.dark.primary;
+import getThemeColor from '../helpers/getThemeColor';
 
 const AppStyles = StyleSheet.create({
   container: {
@@ -15,7 +8,7 @@ const AppStyles = StyleSheet.create({
   },
   title: {
     fontSize: 30,
-    color: getThemeColor,
+    color: getThemeColor(),
   },
   copyIcon: {
     marginLeft: 'auto',

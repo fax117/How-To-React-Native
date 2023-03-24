@@ -1,16 +1,9 @@
 import {StyleSheet} from 'react-native';
-import {Appearance} from 'react-native';
-import {themeColors} from './theme';
-
-const colorScheme = Appearance.getColorScheme();
-const getThemeColor: string =
-  colorScheme === 'light'
-    ? themeColors.light.primary
-    : themeColors.dark.primary;
+import getThemeColor from '../helpers/getThemeColor';
 
 const PastURLsStyles = StyleSheet.create({
   title: {
-    color: getThemeColor,
+    color: getThemeColor(),
     fontSize: 30,
   },
   container: {
@@ -20,9 +13,9 @@ const PastURLsStyles = StyleSheet.create({
   },
   containerTable: {
     width: 350,
-    marginHorizontal: 15,
+    margin: 15,
     borderWidth: 1,
-    borderColor: getThemeColor,
+    borderColor: getThemeColor(),
     padding: 15,
   },
   textContainer: {
@@ -32,20 +25,20 @@ const PastURLsStyles = StyleSheet.create({
     flexDirection: 'row',
   },
   shortSubtitle: {
-    color: getThemeColor,
+    color: getThemeColor(),
     fontSize: 20,
   },
   originalSubtitle: {
-    color: getThemeColor,
+    color: getThemeColor(),
     fontSize: 20,
   },
   shortText: {
-    color: getThemeColor,
+    color: getThemeColor(),
     fontSize: 10,
     marginRight: 50,
   },
   originalText: {
-    color: getThemeColor,
+    color: getThemeColor(),
     fontSize: 10,
     marginRight: 50,
   },
